@@ -1,0 +1,26 @@
+<section class="emp-container">
+
+        <!-- <section class="main"> -->
+    
+            <section class="header">
+                <div class="bread-crumbs">
+                    <i class="fa fa-home"></i> / {{cesId ? 'Update CES Request' : 'Add CES Request'}}
+                </div>
+                <div class="row">
+                    <div class="col-12 page-header">
+                        <!-- <h2><strong>CES(N) New</strong> Request Form</h2> -->
+                    </div>
+                    <!-- <div class="col-6"></div> -->
+                </div>
+            </section>
+    
+            <article class="content">
+                <!---- CES Create ---->
+                <emp-add-ces-request *ngIf="!cesId" (addNewCes)="addNewCes()" (changedCategory)="getServiceSubCategory($event)" [parentForm]="cesform" [data]="data"></emp-add-ces-request>
+                <emp-edit-ces-request *ngIf="cesId" (addNewCes)="addNewCes()" (changedCategory)="getServiceSubCategory($event)" [parentForm]="cesform" [cesId]="cesId" [data]="data"></emp-edit-ces-request>
+                <emp-audit-trail *ngIf="cesId" [fromId]="'1'" [taskId]="cesId"></emp-audit-trail>
+            </article>
+    
+        <!-- </section> -->
+    
+    </section>

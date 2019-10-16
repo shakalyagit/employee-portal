@@ -1,0 +1,51 @@
+@import "../../../../assets/variable";
+@import "../../../../assets/responsive";
+
+.emp-container {
+  display: flex;
+  flex-flow: row;
+}
+.content,
+.header {
+  justify-content: flex-start;
+}
+.header {
+  .btn-new-request {
+    float: right;
+    @media #{$mobile} {
+        float: left;
+        margin-top: 10px;
+    }
+  }
+}
+tbody.ces-list-tbody {
+  display: block;
+  max-height: calc(100vh - 280px);
+  overflow: auto;
+}
+thead.ces-list-thead,
+tbody.ces-list-tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.table-search {
+  #search {
+    label{
+      // border-radius: 4px;
+      margin-left: 3px;
+      margin-top: 4px;
+      background: #d9e0e6;
+    }
+    .form-control {
+      height: 34px;
+      color: #000;
+      background-color: #ececec;
+      // border-radius: 4px;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+      &::placeholder{
+        color: #222;
+      }
+    }
+  }
+}

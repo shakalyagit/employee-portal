@@ -1,0 +1,155 @@
+<section class="emp-container">
+
+    <!-- <section class="main"> -->
+
+    <section class="header">
+        <div class="bread-crumbs">
+            <i class="fa fa-home"></i> / View CES Request
+        </div>
+        <div class="row">
+            <div class="col-12 page-header">
+                <!-- <h2><strong>CES(N) New</strong> Request Form</h2> -->
+            </div>
+            <!-- <div class="col-6"></div> -->
+        </div>
+    </section>
+
+    <article class="content">
+        <!---- CES View ---->
+        <div class="bx-white card px-4 py-4 clearfix">
+            <form [formGroup]="cesform">
+                <div class="form-row">
+                    <h3 class="block-heading mb-4  col-lg-12">Initiator Details</h3>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-field [identifier]="'requestorName'" [placeholder]="'Enter Requestor Name'"
+                            [name]="'requestorName'" validation="true" [form]="cesform" required="required"
+                            [readonly]="true">
+                            <label>Requester Name</label>
+                        </emp-input-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-field [identifier]="'empCode'" [placeholder]="'Enter Employee Code'"
+                            [name]="'empCode'" validation="true" [form]="cesform" required="required" [readonly]="true">
+                            <label>Employee Code</label>
+                        </emp-input-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-field [identifier]="'department'" [placeholder]="'Enter Department'"
+                            [name]="'department'" validation="true" [form]="cesform" required="required"
+                            [readonly]="true">
+                            <label>Department</label>
+                        </emp-input-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-field [identifier]="'grade'" [placeholder]="'Enter Grade'" [name]="'grade'"
+                            validation="true" [form]="cesform" required="required" [readonly]="true">
+                            <label>Grade</label>
+                        </emp-input-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-field [identifier]="'requestorLocation'" [placeholder]="'Enter Requestor Location'"
+                            [name]="'requestorLocation'" validation="true" [form]="cesform" required="required"
+                            [readonly]="true">
+                            <label>Requestor Location</label>
+                        </emp-input-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-option-list [options]="data['tlName']" [form]="cesform" name="sanctioningAuhority">
+                            <label>Sanction Authority</label>
+                        </emp-input-option-list>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-field [identifier]="'mobileNo'" [placeholder]="'Enter Mobile Number'"
+                            [name]="'mobileNo'" validation="true" [form]="cesform" [readonly]="true">
+                            <label>Mobile Number</label>
+                        </emp-input-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-field [identifier]="'contactNo'" [placeholder]="'Enter Contact / Ext No'"
+                            [name]="'contactNo'" validation="true" [form]="cesform" required="required"
+                            [readonly]="true">
+                            <label>Contact / Ext No</label>
+                        </emp-input-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-option-list [options]="data['category']" [form]="cesform" name="serviceCategory">
+                            <label>Service Category</label>
+                        </emp-input-option-list>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <emp-input-option-list [options]="data['subcategory']" [form]="cesform"
+                            name="serviceSubCategory">
+                            <label>Service SubCategory</label>
+                        </emp-input-option-list>
+                    </div>
+                    <div class="col-md-12"></div>
+                    <div class="col-md-6">Justification
+                        <emp-textarea-field [identifier]="'justification'" [placeholder]="'Enter Justification'"
+                            [name]="'justification'" validation="true" [form]="cesform" required="required"
+                            [readonly]="true">
+                            <label>Justification</label>
+                        </emp-textarea-field>
+                    </div>
+                    <div class="col-md-6">
+                        <emp-textarea-field [identifier]="'requirement'" [placeholder]="'Enter Requirement'"
+                            [name]="'requirement'" validation="true" [form]="cesform" required="required"
+                            [readonly]="true">
+                            <label>Requirement</label>
+                        </emp-textarea-field>
+                    </div>
+                    <!-- <h3 class="block-heading col-lg-12 mb-4 mt-3">File Attachment</h3>
+                            <div class="col-lg-12 mb-4">
+                                <div class="section"> <span class="Choose">Choose File</span>
+                                    <input type="file" class="gui-file" name="file1" id="file1"
+                                        onchange="document.getElementById('uploader1').value = this.value;">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="upload-file">
+                                    <li> <a href="#">FileName.pdf</a></li>
+                                    <li><a href="#"> FileName_test_file1234.pdf</a></li>
+                                    <li><a href="#">FileName1234_files.jpg</a></li>
+                                    <li><a href="#">FileName_5485_files.pdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="upload-file">
+                                    <li> <a href="#">FileName.pdf</a></li>
+                                    <li><a href="#"> FileName_test_file1234.pdf</a></li>
+                                    <li><a href="#">FileName1234_files.jpg</a></li>
+                                    <li><a href="#">FileName_5485_files.pdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="upload-file">
+                                    <li> <a href="#">FileName.pdf</a></li>
+                                    <li><a href="#"> FileName_test_file1234.pdf</a></li>
+                                    <li><a href="#">FileName1234_files.jpg</a></li>
+                                    <li><a href="#">FileName_5485_files.pdf</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="upload-file">
+                                    <li> <a href="#">FileName.pdf</a></li>
+                                    <li><a href="#"> FileName_test_file1234.pdf</a></li>
+                                    <li><a href="#">FileName1234_files.jpg</a></li>
+                                    <li><a href="#">FileName_5485_files.pdf</a></li>
+                                </ul>
+                            </div> -->
+
+                    <div class="text-center col-md-12  mt-4 btn-wrap">
+                        <!-- <button type="button" class="btn btn-Draft col-x btn-sm">Save as Draft</button> -->
+                        <button type="button" class="btn btn-Close  btn-sm"
+                            routerLink="/request/requestlist">Close</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <emp-audit-trail *ngIf="cesId" [fromId]="'1'" [taskId]="cesId"></emp-audit-trail>
+
+    </article>
+
+    <!-- </section> -->
+
+</section>

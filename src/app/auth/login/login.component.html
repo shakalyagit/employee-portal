@@ -1,0 +1,27 @@
+<div class="cmn_auth">
+  <div class="w-100 h-100 d-flex align-items-center justify-content-center flex-column">
+    <h2 class="cmn_auth-heading">login to your account</h2>
+    <div class="cmn_auth-form d-flex align-items-center justify-content-center flex-column">
+      <form [formGroup]="loginForm" class="w-100">
+        <span *ngIf="success" class="success">your form is valid</span>
+        <emp-input-field [identifier]="'loginUsername'" [placeholder]="'enter your username'" [name]="'username'"
+          validation="true" [form]="loginForm">
+          <label>Enter your username</label>
+        </emp-input-field>
+        <emp-input-field [identifier]="'loginPass'" [placeholder]="'enter your password'" [name]="'password'"
+          validation="true" type="password" [form]="loginForm">
+          <label>Enter password</label>
+        </emp-input-field>
+        <emp-button [identifier]="'submitLogin'" [buttonDisable]="!loginForm.valid" (buttonClicked)="onSubmitLogin()">
+          Login</emp-button>
+
+      </form>
+      <div class="register text-center mt-15">
+        <!-- <span class="d-block">Don't have an account?</span> -->
+        <!-- <a routerLink="/service/auth/signup">register</a> -->
+      </div>
+      <!-- <a routerLink="/service/auth/forget">forget password ?</a> -->
+    </div>
+   
+  </div>
+</div>

@@ -1,0 +1,125 @@
+<div class="bx-white card px-4 py-4 clearfix">
+    <form [formGroup]="parentForm">
+        <div class="form-row">
+            <h3 class="block-heading mb-4  col-lg-12">Initiator Details</h3>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-field [identifier]="'requestorName'" [placeholder]="'Enter Requestor Name'"
+                    [name]="'requestorName'" validation="true" [form]="parentForm" required="required"
+                    [readonly]="true">
+                    <label>Requester Name</label>
+                </emp-input-field>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-field [identifier]="'empCode'" [placeholder]="'Enter Employee Code'" [name]="'empCode'"
+                    validation="true" [form]="parentForm" required="required" [readonly]="true">
+                    <label>Employee Code</label>
+                </emp-input-field>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-field [identifier]="'department'" [placeholder]="'Enter Department'" [name]="'department'"
+                    validation="true" [form]="parentForm" required="required" [readonly]="true">
+                    <label>Department</label>
+                </emp-input-field>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-field [identifier]="'grade'" [placeholder]="'Enter Grade'" [name]="'grade'" validation="true"
+                    [form]="parentForm" required="required" [readonly]="true">
+                    <label>Grade</label>
+                </emp-input-field>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-field [identifier]="'requestorLocation'" [placeholder]="'Enter Requestor Location'"
+                    [name]="'requestorLocation'" validation="true" [form]="parentForm" required="required">
+                    <label>Requestor Location</label>
+                </emp-input-field>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-option-list [options]="data['tlName']" validation="true" [form]="parentForm"
+                    required="required" name="sanctioningAuhority">
+                    <label>Sanction Authority</label>
+                </emp-input-option-list>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-field [identifier]="'mobileNo'" [placeholder]="'Enter Mobile Number'" [name]="'mobileNo'"
+                    validation="true" [form]="parentForm" [readonly]="true">
+                    <label>Mobile Number</label>
+                </emp-input-field>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-field [identifier]="'contactNo'" [placeholder]="'Enter Contact / Ext No'"
+                    [name]="'contactNo'" validation="true" [form]="parentForm" required="required" [readonly]="true">
+                    <label>Contact / Ext No</label>
+                </emp-input-field>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-option-list [options]="data['category']" (optionValueChange)="optionCategoryChange($event)"
+                    validation="true" [form]="parentForm" required="required" name="serviceCategory">
+                    <label>Service Category</label>
+                </emp-input-option-list>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <emp-input-option-list [options]="data['subcategory']" validation="true" [form]="parentForm"
+                    required="required" name="serviceSubCategory">
+                    <label>Service SubCategory</label>
+                </emp-input-option-list>
+            </div>
+            <div class="col-md-12"></div>
+            <div class="col-md-6">
+                <emp-textarea-field [identifier]="'justification'" [placeholder]="'Enter Justification'"
+                    [name]="'justification'" validation="true" [form]="parentForm" required="required">
+                    <label>Justification</label>
+                </emp-textarea-field>
+            </div>
+            <div class="col-md-6">
+                <emp-textarea-field [identifier]="'requirement'" [placeholder]="'Enter Requirement'"
+                    [name]="'requirement'" validation="true" [form]="parentForm" required="required">
+                    <label>Requirement</label>
+                </emp-textarea-field>
+            </div>
+            <h3 class="block-heading col-lg-12 mb-4 mt-3">File Attachment</h3>
+            <div class="col-lg-12 mb-4">
+                <div class="section"> <span class="Choose">Choose File</span>
+                    <input type="file" class="gui-file" name="file" id="file" (change)="uploadFile($event)">
+                </div>
+            </div>
+            <ng-container *ngIf="files">
+                <div class="col-md-3" *ngFor="let file of files">
+                    <ul class="upload-file">
+                        <li> <a href="https://i5usnlk1nj.execute-api.us-east-1.amazonaws.com/qa/cescontroller/downloadfile?filename={{file.fileName}}" download="{{file.fileName}}" target="_blank">{{file.fileName}}</a></li>
+                    </ul>
+                </div>
+            </ng-container>
+
+            <!-- <div class="col-lg-3">
+                <ul class="upload-file">
+                    <li> <a href="#">FileName.pdf</a></li>
+                    <li><a href="#"> FileName_test_file1234.pdf</a></li>
+                    <li><a href="#">FileName1234_files.jpg</a></li>
+                    <li><a href="#">FileName_5485_files.pdf</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul class="upload-file">
+                    <li> <a href="#">FileName.pdf</a></li>
+                    <li><a href="#"> FileName_test_file1234.pdf</a></li>
+                    <li><a href="#">FileName1234_files.jpg</a></li>
+                    <li><a href="#">FileName_5485_files.pdf</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul class="upload-file">
+                    <li> <a href="#">FileName.pdf</a></li>
+                    <li><a href="#"> FileName_test_file1234.pdf</a></li>
+                    <li><a href="#">FileName1234_files.jpg</a></li>
+                    <li><a href="#">FileName_5485_files.pdf</a></li>
+                </ul>
+            </div> -->
+            <div class="text-center col-md-12  mt-4 btn-wrap">
+                <button type="button" class="btn btn-Draft col-x btn-sm" (click)="draftSave()">Save as Draft</button>
+                <button type="button" class="btn btn-Submit mx-1 btn-sm" (mousedown)="updateCesRequest()"
+                    >Submit</button>
+                <button type="button" class="btn btn-Close  btn-sm" (mousedown)="close()">Close</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,72 @@
+<section class="">
+
+    <!-- <section class="main"> -->
+
+    <section class="header">
+        <div class="bread-crumbs">
+            <i class="fa fa-home"></i> / Requests
+        </div>
+        <div class="row">
+            <div class="col-sm-6 page-header">
+                <!-- <h2><strong>CES(N) New</strong> Request Form</h2> -->
+                <div class="search-wrap  table-search">
+                    <form class="form-inline">
+                        <section id="search">
+                            <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i><span
+                                    class="sr-only">Search
+                                    icons</span></label>
+                            <input id="search-input" class="form-control " placeholder="Search" autocomplete="off"
+                                spellcheck="false" autocorrect="off" tabindex="1">
+                        </section>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <a (mousedown)="createNewRequest()" routerLink="/request/managerequest"
+                    class="btn btn-rounded btn-Request btn-new-request">Create New Request</a>
+            </div>
+        </div>
+    </section>
+
+    <article class="content">
+        <!---- CES Request Listing ---->
+        <div class="bx-white card p-0 pt-4 my-3 clearfix">
+            <h3 class="block-heading col-lg-12">MY LATEST REQUESTS</h3>
+            <div class="table-responsive">
+                <table class="table text-center table-Audit  mb-0">
+                    <thead class="ces-list-thead">
+                        <tr>
+                            <th>TASK ID</th>
+                            <th>TASK NAME</th>
+                            <th>STATUS</th>
+                            <th>LAST UPDATED ON</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody class="ces-list-tbody">
+                        <tr *ngFor="let request of cesRequestList">
+                            <td>{{request.cesId ? request.cesId : '--'}}</td>
+                            <td>{{request.taskName ? request.taskName : '--'}}</td>
+                            <td>{{request.status | titlecase}}</td>
+                            <td>{{_helperService.getDateAndTime(request.createdOn) | date:'short'}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary"
+                                        [routerLink]='["/request/managerequest", request.cesId]'><i
+                                            class="fa fa-pencil"></i></button>
+                                    <button type="button" class="btn btn-success"
+                                        [routerLink]='["/request/viewrequest", request.cesId]'><i
+                                            class="fa fa-eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </article>
+
+    <!-- </section> -->
+
+</section>
